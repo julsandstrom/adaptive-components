@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import AdaptiveCard from "./AdaptiveCard";
-import SizeSelection from "./SizeSelection";
+import AdaptiveCard from "./ProfileCard";
+import CardSizeSelector from "./CardSizeSelector";
+import { profileCardDemoContent } from "../data/profile-card-demo.data";
 
 const sizes = {
   narrow: "w-full max-w-[320px]",
@@ -12,7 +13,7 @@ const sizes = {
 
 export type CardSize = keyof typeof sizes;
 
-const AdaptiveCardDemo = () => {
+const ProfileCardDemo = () => {
   const [size, setSize] = useState<CardSize>("narrow");
 
   return (
@@ -25,16 +26,16 @@ const AdaptiveCardDemo = () => {
       </h2>
       <div
         className={`
-    transition-all duration-300 ease-in-out
+    transition-all duration-300 ease-in-out mb-5
    
     ${sizes[size]}
   `}
       >
-        <AdaptiveCard />
+        <AdaptiveCard id="adaptive-card-preview" {...profileCardDemoContent} />
       </div>
-      <SizeSelection size={size} onSizeChange={setSize} />{" "}
+      <CardSizeSelector value={size} onChange={setSize} />{" "}
     </section>
   );
 };
 
-export default AdaptiveCardDemo;
+export default ProfileCardDemo;

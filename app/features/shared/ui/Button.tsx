@@ -4,19 +4,21 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode;
 };
 
-const Button = ({ children, className = "", ...props }: ButtonProps) => {
+const Button = ({ className = "", ...props }: ButtonProps) => {
   return (
     <button
       className={`
         rounded-md border border-white/20 px-4 py-2
-        transition hover:bg-white/10
-        aria-pressed:bg-white/20
+        transition-colors
+        hover:bg-white/10
+        focus-visible:outline-2
+        focus-visible:outline-offset-2
+        disabled:cursor-not-allowed
+        disabled:opacity-50
         ${className}
       `}
       {...props}
-    >
-      {children}
-    </button>
+    />
   );
 };
 
