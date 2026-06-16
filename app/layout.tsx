@@ -28,7 +28,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <body className="grid min-h-dvh grid-rows-[auto_1fr] p-4 font-sans">
+      <body className="grid min-h-dvh grid-rows-[auto_1fr] p-4 font-sans xl:py-8">
         <Nav />
 
         <main className="grid place-items-center py-12">

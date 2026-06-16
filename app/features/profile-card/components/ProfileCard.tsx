@@ -90,7 +90,7 @@ const ProfileCard = ({
               @lg/profile-card:text-center
             "
           >
-            <p className="font-medium @sm/profile-card:text-xl @lg/profile-card:text-xl">
+            <p className="font-semibold text-black/90 @sm/profile-card:text-xl @lg/profile-card:text-xl">
               {summary}
             </p>
 

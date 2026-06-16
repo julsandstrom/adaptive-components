@@ -24,7 +24,8 @@ const ProfileCardDemo = () => {
           mb-5 w-full
           motion-safe:transition-[max-width]
           motion-safe:duration-300
-          motion-safe:ease-in-out
+          motion-safe:ease-in-out    border border-black/10
+          bg-white/20
           ${CARD_WIDTHS[size]}
         `}
       >
