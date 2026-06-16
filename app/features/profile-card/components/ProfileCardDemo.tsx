@@ -1,39 +1,56 @@
 "use client";
 
 import { useState } from "react";
-import AdaptiveCard from "./ProfileCard";
-import CardSizeSelector from "./CardSizeSelector";
+import ContainerSizeSelector from "../../shared/ui/ContainerSizeSelector";
 import { profileCardDemoContent } from "../data/profile-card-demo.data";
-
-const sizes = {
-  narrow: "w-full max-w-[320px]",
-  medium: "w-full max-w-[480px]",
-  large: "w-full max-w-[640px]",
-};
-
-export type CardSize = keyof typeof sizes;
+import { CARD_SIZE_OPTIONS, CARD_WIDTHS } from "../model/profile-card.config";
+import type { CardSize } from "../model/profile-card.types";
+import ProfileCard from "./ProfileCard";
 
 const ProfileCardDemo = () => {
   const [size, setSize] = useState<CardSize>("narrow");
 
   return (
     <section
-      aria-labelledby="adaptive-card-title"
+      aria-labelledby="profile-card-demo-title"
       className="flex w-full flex-col items-center gap-8 px-4"
     >
-      <h2 id="adaptive-card-title" className="sr-only">
-        Adaptive card container query demo
+      <h2 id="profile-card-demo-title" className="sr-only">
+        Adaptive profile card container query demo
       </h2>
+
       <div
         className={`
-    transition-all duration-300 ease-in-out mb-5
-   
-    ${sizes[size]}
-  `}
+          mb-5 w-full
+          motion-safe:transition-[max-width]
+          motion-safe:duration-300
+          motion-safe:ease-in-out
+          ${CARD_WIDTHS[size]}
+        `}
       >
-        <AdaptiveCard id="adaptive-card-preview" {...profileCardDemoContent} />
+        <ProfileCard
+          id="adaptive-profile-card-preview"
+          {...profileCardDemoContent}
+        />
       </div>
-      <CardSizeSelector value={size} onChange={setSize} />{" "}
+
+      <ContainerSizeSelector
+        value={size}
+        options={CARD_SIZE_OPTIONS}
+        onChange={setSize}
+        name="profile-card-preview-size"
+      />
+
+      <div className="space-y-3 text-center text-sm font-light lg:text-xl">
+        <p>
+          The card changes layout through CSS Container Queries, not viewport
+          breakpoints.
+        </p>
+      </div>
+
+      <p className="sr-only" aria-live="polite">
+        Profile card preview width changed to {size}.
+      </p>
     </section>
   );
 };

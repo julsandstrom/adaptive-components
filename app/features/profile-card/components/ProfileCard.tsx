@@ -29,12 +29,16 @@ const ProfileCard = ({
         <header>
           <h2
             id={titleId}
-            className="text-xl font-bold @lg/profile-card:text-2xl"
+            className="text-xl @sm/profile-card:text-2xl font-bold @lg/profile-card:text-3xl"
           >
             {title}
           </h2>
 
-          {label && <p className="text-base font-light">{label}</p>}
+          {label && (
+            <p className="text-base  @lg/profile-card:text-xl font-light">
+              {label}
+            </p>
+          )}
         </header>
 
         <div
@@ -51,7 +55,7 @@ const ProfileCard = ({
         >
           <ul
             aria-label="Profile members"
-            className="-mx-2 flex justify-around @md/profile-card:order-2 @md/profile-card:mx-0 @md/profile-card:flex-col @md/profile-card:gap-5 @lg/profile-card:flex-row @lg/profile-card:gap-10"
+            className="-mx-2 flex justify-around @md/profile-card:order-2 @md/profile-card:mx-0 @md/profile-card:flex-col @md/profile-card:gap-5 @lg/profile-card:flex-row @lg/profile-card:gap-10 "
           >
             {members.map((member) => (
               <li
@@ -86,9 +90,11 @@ const ProfileCard = ({
               @lg/profile-card:text-center
             "
           >
-            <p className="font-medium @lg/profile-card:text-lg">{summary}</p>
+            <p className="font-medium @sm/profile-card:text-xl @lg/profile-card:text-xl">
+              {summary}
+            </p>
 
-            <p className="font-light @lg/profile-card:text-base">
+            <p className="font-light  @lg/profile-card:text-base">
               {description}
             </p>
           </div>

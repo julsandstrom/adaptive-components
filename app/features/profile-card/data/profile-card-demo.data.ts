@@ -17,7 +17,7 @@ export const profileCardDemoContent: ProfileCardContent = {
       imageSrc: "/images/profile_02.png",
     },
     {
-      id: "member-2",
+      id: "member-3",
       name: "Profile Three",
       imageSrc: "/images/profile_03.png",
     },
